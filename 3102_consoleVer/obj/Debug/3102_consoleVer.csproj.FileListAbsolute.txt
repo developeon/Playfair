@@ -1,0 +1,7 @@
+C:\Users\Mirim\Desktop\3104 정보보호\3102_consoleVer\3102_consoleVer\bin\Debug\3102_consoleVer.exe.config
+C:\Users\Mirim\Desktop\3104 정보보호\3102_consoleVer\3102_consoleVer\bin\Debug\3102_consoleVer.exe
+C:\Users\Mirim\Desktop\3104 정보보호\3102_consoleVer\3102_consoleVer\bin\Debug\3102_consoleVer.pdb
+C:\Users\Mirim\Desktop\3104 정보보호\3102_consoleVer\3102_consoleVer\obj\Debug\3102_consoleVer.csproj.CoreCompileInputs.cache
+C:\Users\Mirim\Desktop\3104 정보보호\3102_consoleVer\3102_consoleVer\obj\Debug\3102_consoleVer.exe
+C:\Users\Mirim\Desktop\3104 정보보호\3102_consoleVer\3102_consoleVer\obj\Debug\3102_consoleVer.pdb
+C:\Users\Mirim\Desktop\3104 정보보호\3102_consoleVer\3102_consoleVer\obj\Debug\3102_consoleVer.csprojResolveAssemblyReference.cache
