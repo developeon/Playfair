@@ -48,6 +48,7 @@ namespace _3102_consoleVer
 
             //평문 띄어쓴거 없애고 SS같은거 있으면 중간에 X넣기
             List<char> splitPlainText = new List<char>(plainText);
+            List<int> rememberIndex = new List<int>(); //X추가해준 index 기억
             do
             {
                 splitPlainText.Remove(' ');
@@ -60,14 +61,16 @@ namespace _3102_consoleVer
                 if (splitPlainText[tmpCnt] == splitPlainText[tmpCnt + 1])
                 {
                     splitPlainText.Insert(tmpCnt + 1, 'x');
+                    rememberIndex.Add(tmpCnt+1);
                 }
                 tmpCnt += 2;
                 if (tmpCnt == splitPlainText.Count() - 1 || tmpCnt >= splitPlainText.Count()) break;
             }
 
+            //홀수면 x 추가해주기
             if (splitPlainText.Count() % 2 == 1)
             {
-                splitPlainText.Add('x'); //홀수면 x 추가해주기
+                splitPlainText.Add('x'); 
                 isaddX = true;
             }
 
@@ -100,7 +103,7 @@ namespace _3102_consoleVer
                             rowtemp2 = k;
                         }
                         //바꿀문자에 z있으면 Q랑같은 컬럼,열 번호 넣어주고 비교하기
-                        //그냥 splitPlainText[i]에 z있으면 q로바꿔주면되는거아닌가??
+                        //그냥 splitPlainText[i]에 z있으면 q로바꿔줌 
                     }
                 }
                 //같은행, 같은열에 있을때 처리 
@@ -148,8 +151,6 @@ namespace _3102_consoleVer
                    
                     continue;
                 }
-                //각자 행 열 구했으니 찍어볼까
-                //Console.WriteLine("({0},{1})({2},{3})", coltemp1, rowtemp1, coltemp2, rowtemp2);
                 cipher_text.Add(cipher_plate[coltemp2,rowtemp1]);
                 cipher_text.Add(cipher_plate[coltemp1, rowtemp2]);
             } //81 ~153라인함수로 만들 수 있을듯?그래서 복호화랑 암호화랑 같이 진행하자!
@@ -222,17 +223,21 @@ namespace _3102_consoleVer
 
                     continue;
                 }
-                //각자 행 열 구했으니 찍어볼까
-                //Console.WriteLine("({0},{1})({2},{3})", coltemp1, rowtemp1, coltemp2, rowtemp2);
                 plain_text.Add(cipher_plate[coltemp2, rowtemp1]);
                 plain_text.Add(cipher_plate[coltemp1, rowtemp2]);
             }
+
+            //홀수일때 추가해준 x삭제
             if (isaddX) {
-                //x삭제
-                //TODO:마지마 뿐만 아니라 중간에 ㅜㅊ가해준 X도 빼야하는데 ..
+               
                 plain_text.RemoveAt((plain_text.Count()-1));
             }
-            Console.WriteLine("복호문 출력");
+            //중간에 넣어준 x 삭제
+            for (int i = rememberIndex.Count()-1; i >=0; i--)
+            {
+                plain_text.RemoveAt(rememberIndex[i]);
+            }
+            Console.WriteLine("\n복호문 출력");
             foreach (char item in plain_text)
             {
                 Console.Write(item);
